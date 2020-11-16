@@ -26,7 +26,7 @@ public class TestingMain {
         System.out.println("Error!");
         if(calculator.subtract(a,b)==(a-b)){
             System.out.println("test Ok");
-        }else{
+        }else {
             System.out.println("Error!");
         }
 
