@@ -1,27 +1,27 @@
-package com.kodilla.testing.forum;                             // [1]
+package com.kodilla.testing.forum;
 
-import java.util.ArrayList;                                    // [2]
-import java.util.LinkedList;                                   // [3]
+import java.util.ArrayList;
+import java.util.LinkedList;
 
-import java.util.List;                                         // [4]
-public class ForumUser {                                       // [5]
+import java.util.List;
+public class ForumUser {
 
-    private String name;                                        // [6]
-    private String realName;                                    // [7]
-    private List<ForumPost> posts = new ArrayList<>();          // [8]
-    private List<ForumComment> comments = new LinkedList<>();   // [9]
+    private String name;
+    private String realName;
+    private List<ForumPost> posts = new ArrayList<>();
+    private List<ForumComment> comments = new LinkedList<>();
 
-    public ForumUser(String name, String realName) {            // [10]
+    public ForumUser(String name, String realName) {
         //name visible on forum
-        this.name = name;                                        // [11]
+        this.name = name;
         //real name of the user
-        this.realName = realName;                                // [12]
-    }                                                           // [13]
+        this.realName = realName;
+    }
 
     public void addPost(String author, String postBody) {
         ForumPost thePost = new ForumPost(postBody, author);
-        posts.add(thePost);                                           // [19]
-    }                                                           // [20]
+        posts.add(thePost);
+    }
 
     public int getCommentsQuantity() {                          // [21]
         return comments.size();
@@ -29,8 +29,8 @@ public class ForumUser {                                       // [5]
 
     public void addComment(ForumPost thePost, String author, String commentBody) {
         ForumComment theComment = new ForumComment(thePost, commentBody, author);
-        comments.add(theComment);                                              // [22]
-    }                                                           // [23]
+        comments.add(theComment);
+    }
 
     public ForumPost getPost(int postNumber) {
         if (postNumber >= 0 && postNumber < posts.size()) {
@@ -45,7 +45,7 @@ public class ForumUser {                                       // [5]
             theComment = comments.get(commentNumber);
         }
         return theComment;
-    }                                        // [29]
+    }
 
     public boolean removePost(ForumPost thePost) {
         boolean result = false;
