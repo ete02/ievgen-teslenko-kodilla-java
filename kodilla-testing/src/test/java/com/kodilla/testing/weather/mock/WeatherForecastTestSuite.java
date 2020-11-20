@@ -43,7 +43,7 @@ public class WeatherForecastTestSuite {
         System.out.println("Prepering to execute test #" + testCounter);
 
         temperaturesMap.clear();
-        temperaturesMap.put("Rzeszów", 25.5);
+        temperaturesMap.put("Rzeszów", 25.1);
         temperaturesMap.put("Kraków", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
@@ -64,14 +64,14 @@ public class WeatherForecastTestSuite {
 
     @Test
     void testAverageTemperatureWithMock() {
-            //Given
-            WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        //Given
+        weatherForecast = new WeatherForecast(temperaturesMock);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
 
-            //When
-            double averageTemperature = weatherForecast.averageTemperature();
+        double averageTemperature = weatherForecast.averageTemperature();
 
-            //Then
-            assertEquals(25.56, averageTemperature);
+        //Then
+        assertEquals(25.48, averageTemperature,0.00);
     }
 
     @Test
@@ -83,6 +83,6 @@ public class WeatherForecastTestSuite {
         //When
         double medianTemperatureResult = weatherForecast.medianTemperature();
         //Then
-        assertEquals(25.5, medianTemperatureResult);
+        assertEquals(25.2, medianTemperatureResult);
     }
 }
