@@ -29,14 +29,14 @@ public final class ArrayOperationsTestSuite {
     }
 
     @Test
-    void testGetAverage() {
+    public void testGetAverage() {
         System.out.println("Test get average");
         //Given
         final int[] numbersTab = {18, 24, 2, 3, 7, 6, 5, 4, 3, 2};
         //When
         final double calculatedAverage = ArrayOperations.getAverage(numbersTab);
         //Then
-        final double expectedAverage = 5.1;
+        final double expectedAverage = 7.4;
         assertEquals(expectedAverage, calculatedAverage);
     }
 }

@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public interface ArrayOperations {
 
-    static double getAverage(int[] numbers) {
+    static double getAverage(@org.jetbrains.annotations.NotNull int... numbers) {
         final double result;
 
         if (numbers.length > 0) {
