@@ -108,7 +108,7 @@ public class StreamMain<text> {
 
         Forum forum = new Forum();
 
-        Map theResultStringOfUserMap = forum.getList().stream()
+        Map theResultOfUserMap = forum.getList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
                 .filter(forumUser -> forumUser.getNumberOfPosts() > 1)
                 .filter(forumUser -> {
@@ -118,6 +118,6 @@ public class StreamMain<text> {
                 })
                 .collect(Collectors.toMap(ForumUser::getUserId, ForumUser::getUsername));
 
-        System.out.println(theResultStringOfUserMap);
+        System.out.println(theResultOfUserMap);
     }
 }
