@@ -6,18 +6,10 @@ public interface ArrayOperations {
 
     static double getAverage(@org.jetbrains.annotations.NotNull int... numbers) {
         final double result;
-
-        if (numbers.length > 0) {
-            IntStream.range(0, numbers.length)
-                    .forEach(n -> System.out.println(numbers[n]));
-
-            result = IntStream.range(0, numbers.length)
-                    .map(n -> n = numbers[n])
-                    .average()
-                    .getAsDouble();
-            return result;
-        } else {
-            return 0;
-        }
+        result = IntStream.range(0, numbers.length)
+                .map(n -> n = numbers[n])
+                .average()
+                .getAsDouble();
+        return result;
     }
 }
