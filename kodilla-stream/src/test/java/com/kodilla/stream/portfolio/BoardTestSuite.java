@@ -2,8 +2,10 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -107,17 +109,57 @@ class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> undoneTasks = new ArrayList<>();             // [1]
-        undoneTasks.add(new TaskList("To do"));                     // [2]
-        undoneTasks.add(new TaskList("In progress"));               // [3]
-        List<Task> tasks = project.getTaskLists().stream()          // [4]
-                .filter(undoneTasks::contains)                           // [5]
-                .flatMap(tl -> tl.getTasks().stream())                   // [6]
-                .filter(t -> t.getDeadline().isBefore(LocalDate.now()))  // [7]
-                .collect(toList());                                      // [8]
+        List<TaskList> undoneTasks = new ArrayList<>();
+        undoneTasks.add(new TaskList("To do"));
+        undoneTasks.add(new TaskList("In progress"));
+        List<Task> tasks = project.getTaskLists().stream()
+                .filter(undoneTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .filter(t -> t.getDeadline().isBefore(LocalDate.now()))
+                .collect(toList());
 
         //Then
-        assertEquals(1, tasks.size());                              // [9]
+        assertEquals(1, tasks.size());
         assertEquals("HQLs for analysis", tasks.get(0).getTitle());
+    }
+    @Test
+    void testAddTaskListFindLongTasks() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        long longTasks = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(Task::getCreated)
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
+                .count();
+
+        //Then
+        assertEquals(2, longTasks);
+    }
+    @Test
+    void testAverageWorkingOnTasks() {
+        System.out.println("Test Average Working On Tasks");
+        //Given
+        final Board project = prepareTestData();
+        //When
+        final List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        final List<Task> tasks = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(taskList -> taskList.getTasks().stream())
+                .collect(toList());
+        final double averageNumberOfDaysAfterTaskStarts = IntStream.range(0, tasks.size()) // strumien typów prostych
+                .map(n -> {
+                    final Period period = Period.between(tasks.get(n).getCreated(), LocalDate.now());
+                    return period.getDays();
+                })
+                .average()
+                .getAsDouble();
+        //Then
+        assertEquals(10, averageNumberOfDaysAfterTaskStarts);
     }
 }
