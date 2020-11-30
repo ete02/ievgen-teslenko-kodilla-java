@@ -23,7 +23,7 @@ public class FirstChallenge {
         } catch (ArithmeticException e) {
             System.out.println("Ops! There is an error. Error: " + e);
         } finally {
-            System.out.println("Correct");
+            System.out.println("End of try catch");
         }
     }
 }
