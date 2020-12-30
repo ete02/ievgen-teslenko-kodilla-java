@@ -1,17 +1,19 @@
 package com.kodilla.stream.portfolio;
 
+import java.util.Objects;
+
 public final class User {
 
-    private final String username;
+    private final String userName;
     private final String realName;
 
-    public User(final String username, final String realName) {
-        this.username = username;
+    public User(final String userName, final String realName) {
+        this.userName = userName;
         this.realName = realName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     public String getRealName() {
@@ -21,15 +23,22 @@ public final class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "userName='" + userName + '\'' +
+                ", realName='" + realName + '\'' +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return username.equals(user.username);
+        return Objects.equals(userName, user.userName) &&
+                Objects.equals(realName, user.realName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, realName);
     }
 }
