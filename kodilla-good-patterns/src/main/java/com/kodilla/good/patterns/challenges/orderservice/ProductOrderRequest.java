@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.orderservice;
 
 public class ProductOrderRequest implements OrderRequest {
     public ProductOrderRequest(User user, Product product, int quantity, String from) {

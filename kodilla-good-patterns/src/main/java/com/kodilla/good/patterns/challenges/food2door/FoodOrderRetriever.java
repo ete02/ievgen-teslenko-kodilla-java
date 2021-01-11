@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import com.kodilla.good.patterns.challenges.ProductOrderRequest;
+import com.kodilla.good.patterns.challenges.orderservice.ProductOrderRequest;
 
 public class FoodOrderRetriever {
     public Food2DoorRequest retrieve() {

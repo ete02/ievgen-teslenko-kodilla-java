@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.orderservice;
 
 public class ProductOrderService implements OrderService {
     private final ProductOrderRepository productOrderRepository = new ProductOrderRepository();

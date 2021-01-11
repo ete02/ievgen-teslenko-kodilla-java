@@ -1,8 +1,9 @@
-package com.kodilla.good.patterns.challenges;
-import java.util.List;
+package com.kodilla.good.patterns.challenges.moviestore;
+
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class MovieStore {
         public Map<String, List<String>> getMovies() {
