@@ -4,7 +4,8 @@ public class ProductOrderRequest implements OrderRequest {
     public ProductOrderRequest(User user, Product product, int quantity, String from) {
         this.user = user;
         this.product = product;
-        this.quantity = 15;
+        this.quantity = quantity;
+
     }
 
     private final User user;
