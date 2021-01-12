@@ -1,28 +1,27 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public class Food2DoorRequest {
-    private Supplier supplier;
-    private foodName foodName;
-    private int quantity;
+    private final OrderedProducts orderedProducts = new OrderedProducts();
 
-    public Food2DoorRequest(Supplier supplier, foodName foodName, int quantity) {
-        this.supplier = supplier;
-        this.foodName = foodName;
-        this.quantity = quantity;
+    public void addToOrder(FoodProduct product, int quantity) {
+        orderedProducts.add(product, quantity);
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public List<String> getProductsNames() {
+        return orderedProducts.getProductsNamesList();
     }
 
-    public foodName getFoodName() {
-        return foodName;
+    public List<Integer> getProductsPriceList() {
+        return orderedProducts.getProductsPriceList();
     }
 
-    public int getQuantity() {
-        return quantity;
+    public List<Integer> getProductsQuantities() {
+        return orderedProducts.getProductsQuantitiesList();
+    }
+
+    public List<FoodProduct> getProductsList() {
+        return orderedProducts.getProductsList();
     }
 }

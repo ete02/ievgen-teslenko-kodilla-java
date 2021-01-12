@@ -1,17 +1,23 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-public class Supplier implements FoodOrderingProc {
-    private String name;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Supplier(String name) {
-        this.name = name;
+public class Supplier {
+    protected String supplierName;
+    protected final List<FoodProduct> availableProducts = new ArrayList<>();
+
+    public void process(FoodProduct product, int quantity) {
+        System.out.println("Product: " + product + "quantity: " + quantity);
     }
 
-    public String getName() {
-        return name;
+    ;
+
+    public void addAvailableProduct(FoodProduct newProduct) {
+        availableProducts.add(newProduct);
     }
-    public boolean process(Supplier supp, FoodProduct foodName){
-        System.out.println("zamowienie dla sklepu: " + name + " udalo sie zrealizowac ");
-        return true;
+
+    public boolean canDeliver(String name) {
+        return availableProducts.stream().anyMatch(e -> e.getName().equals(name));
     }
 }
