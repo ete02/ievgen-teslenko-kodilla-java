@@ -11,7 +11,7 @@ public class Food2DoorProcessor {
 
     // Map.compute(K key,BiFunction<? super K, super V,  extends V> remappingFunction)
     public void process(Food2DoorRequest newFoodRequest) {
-        List<Supplier> supplierForEachProduct = computesuppliersList(newFoodRequest.getProductsNames());
+        List<Supplier> supplierForEachProduct = computegitsuppliersList(newFoodRequest.getProductsNames());
         for (int i = 0; i < supplierForEachProduct.size(); i++) {
             FoodProduct product = newFoodRequest.getProductsList().get(i);
             int quantity = newFoodRequest.getProductsQuantities().get(i);
