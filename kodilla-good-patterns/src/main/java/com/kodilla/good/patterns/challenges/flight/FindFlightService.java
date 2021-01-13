@@ -22,7 +22,8 @@ public class FindFlightService {
     };
 
     public void findAllFlightsFromWithStopover(Airport departure, List<Airport> stopover) {
-        System.out.println("Searching all flights depature from  " + departure.getName() + " (" + departure.getAbbrev() + "), z miedzylodowaniem.");
+        System.out.println("Searching all flights depature from  " + departure.getName() + " (" + departure.getAbbrev()
+                + "), with stopover.");
         for (int i = 0; i < stopover.size(); i++) {
             int finalI = i;
             flightsList.stream().filter(e -> (e.getDeparture().equals(departure)) && (e.getStopsList() != null)).
