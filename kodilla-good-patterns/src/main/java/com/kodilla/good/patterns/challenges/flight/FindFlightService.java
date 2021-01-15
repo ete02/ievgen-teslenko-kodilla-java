@@ -12,14 +12,18 @@ public class FindFlightService {
     }
 
     public void findAllFlightsFrom(Airport departure) {
-        System.out.println("Searching all flight departure from "+departure.getName()+" ("+departure.getAbbrev()+").");
+        System.out.println("Searching all flight departure from " + departure.getName() + " (" + departure.getAbbrev() + ").");
         flightsList.stream().filter(e -> e.getDeparture().equals(departure)).forEach(System.out::println);
-    };
+    }
+
+    ;
 
     public void findAllFlightsTo(Airport destination) {
-        System.out.println("Searching all flights to the "+destination.getName()+" ("+destination.getAbbrev()+").");
+        System.out.println("Searching all flights to the " + destination.getName() + " (" + destination.getAbbrev() + ").");
         flightsList.stream().filter(e -> e.getDestination().equals(destination)).forEach(System.out::println);
-    };
+    }
+
+    ;
 
     public void findAllFlightsFromWithStopover(Airport departure, List<Airport> stopover) {
         System.out.println("Searching all flights depature from  " + departure.getName() + " (" + departure.getAbbrev()
@@ -27,17 +31,6 @@ public class FindFlightService {
         for (int i = 0; i < stopover.size(); i++) {
             int finalI = i;
             flightsList.stream().filter(e -> (e.getDeparture().equals(departure)) && (e.getStopsList() != null)).
-                    collect(Collectors.toList()).stream().
-                    filter(e -> e.getStopsList().
-                            contains(stopover.get(finalI))).forEach(System.out::println);
-        }
-    };
-
-    public void findAllFlightsToWithStopover(Airport destination, List<Airport> stopover) {
-        System.out.println("Searching flight to the: " + destination.getName() + " (" + destination.getAbbrev() + "), z miedzylodowaniem.");
-        for (int i = 0; i < stopover.size(); i++) {
-            int finalI = i;
-            flightsList.stream().filter(e -> (e.getDestination().equals(destination)) && (e.getStopsList() != null)).
                     collect(Collectors.toList()).stream().
                     filter(e -> e.getStopsList().
                             contains(stopover.get(finalI))).forEach(System.out::println);
