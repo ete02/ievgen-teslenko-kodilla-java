@@ -1,8 +1,7 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.List;
+public class DeliveryProcessor {
 
-public class Food2DoorProcessor {
     public void order(DeliveryRequest deliveryRequest) {
         try {
             FoodSupplier name = FindSupplier.find(deliveryRequest.getFoodSupplier());

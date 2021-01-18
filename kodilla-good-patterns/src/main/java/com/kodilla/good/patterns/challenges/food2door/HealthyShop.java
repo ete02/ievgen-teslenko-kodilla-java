@@ -1,12 +1,13 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-public class HealthyShop extends Supplier {
-    public HealthyShop() {
-        supplierName = "HealthyShop";
-    }
-
-    @Override
-    public void process(FoodProduct product, int quantity) {
-        System.out.println("Order for:" + product + "quantity" + quantity + " from HealthyShop");
+public class HealthyShop implements FoodSupplier {
+    public boolean process(String foodSupplier, String product, int quantity, String unit) {
+        if (unit != null) {
+            System.out.println("The " + foodSupplier + " can deliver product.");
+            return true;
+        } else {
+            System.out.println("You should chose the unit");
+            return false;
+        }
     }
 }
