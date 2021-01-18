@@ -5,3 +5,4 @@ public class Figure {
         System.out.println("This is a geometric figure");
     }
 }
+

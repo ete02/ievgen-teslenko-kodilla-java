@@ -31,4 +31,4 @@ public class DrawerTestSuite {
         //Then
         assertEquals("This is a triangle", result);
     }
-}
+
