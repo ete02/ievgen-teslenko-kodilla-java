@@ -1,6 +1,7 @@
 package com.kodilla.stream.portfolio;
 
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -86,6 +87,7 @@ class BoardTestSuite {
         project.addTaskList(taskListDone);
         return project;
     }
+
     @Test
     void testAddTaskListFindUsersTasks() {
         //Given
@@ -103,6 +105,7 @@ class BoardTestSuite {
         assertEquals(user, tasks.get(0).getAssignedUser());
         assertEquals(user, tasks.get(1).getAssignedUser());
     }
+
     @Test
     void testAddTaskListFindOutdatedTasks() {
         //Given
@@ -122,6 +125,7 @@ class BoardTestSuite {
         assertEquals(1, tasks.size());
         assertEquals("HQLs for analysis", tasks.get(0).getTitle());
     }
+
     @Test
     void testAddTaskListFindLongTasks() {
         //Given
@@ -140,6 +144,7 @@ class BoardTestSuite {
         //Then
         assertEquals(2, longTasks);
     }
+
     @Test
     void testAverageWorkingOnTasks() {
         System.out.println("Test Average Working On Tasks");

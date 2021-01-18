@@ -26,16 +26,18 @@ public class WeatherForecast {
         }
         return resultMap;
     }
+
     public double averageTemperature() {
 
         Collection<Double> temps = this.temperatures.getTemperatures().values();
 
         double sum = 0;
-        for(Double i : temps) {
+        for (Double i : temps) {
             sum += i;
         }
-        return  sum / temps.size();
+        return sum / temps.size();
     }
+
     public double medianTemperature() {
 
         final double result;

@@ -13,7 +13,7 @@ public class FlightSearcher {
 
     }
 
-    public void  findFlight(Flight flight) throws RouteNotFoundException {
+    public void findFlight(Flight flight) throws RouteNotFoundException {
         /*
         if (!flightDestination.containsKey(searchAirport)) {
             throw new RouteNotFoundException(searchAirport);

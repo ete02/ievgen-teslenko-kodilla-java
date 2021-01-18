@@ -40,11 +40,13 @@ public final class ForumUser {
     public Set<ForumUser> getFriends() {
         return friends;
     }
+
     public Set<String> getLocationsOfFriends() {
         return friends.stream()
                 .map(ForumUser::getLocation)
                 .collect(Collectors.toSet());
     }
+
     public Set<String> getLocationsOfFriendsOfFriends() {
         return friends.stream()
                 .flatMap(user -> user.getFriends().stream())

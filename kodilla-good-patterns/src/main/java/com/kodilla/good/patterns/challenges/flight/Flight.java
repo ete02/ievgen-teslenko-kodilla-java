@@ -35,10 +35,10 @@ public class Flight {
         if (stopovers == null) {
             exit += ", brak miedzylodowan."; // exit pozwala skonczyc pr.
         } else {
-            exit += ", miedzylodowanie w: "+stopovers.get(0);
+            exit += ", miedzylodowanie w: " + stopovers.get(0);
             int i = 1;
             while (i < stopovers.size()) {
-                exit += ", "+stopovers.get(i);
+                exit += ", " + stopovers.get(i);
                 i++;
             }
             exit += ".";

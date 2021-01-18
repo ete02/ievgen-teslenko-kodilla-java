@@ -6,7 +6,7 @@ public class OrderedProductValue {
 
     public OrderedProductValue(FoodProduct product, int quantity) {
         this.product = product;
-        this.quantity= quantity;
+        this.quantity = quantity;
     }
 
     public String getName() {

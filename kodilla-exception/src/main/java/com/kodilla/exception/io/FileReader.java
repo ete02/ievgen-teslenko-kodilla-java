@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class FileReader {
 
-    public void readFile() throws FileReaderException{
+    public void readFile() throws FileReaderException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("names.txt").getFile());
 
@@ -22,6 +22,7 @@ public class FileReader {
             System.out.println("I am gonna be here... always!");
         }
     }
+
     public void readFile(final String fileName) throws FileReaderException {
         ClassLoader classLoader = getClass().getClassLoader();
 

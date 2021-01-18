@@ -1,4 +1,5 @@
 package com.kodilla.stream;
+
 import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Map;
+
 import com.kodilla.stream.book.Book;
 
 public class StreamMain<text> {

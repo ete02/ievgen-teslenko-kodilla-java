@@ -5,7 +5,7 @@ public class ProductOrderService implements OrderService {
 
     public boolean order(final User user, final Product product, final int quantity) {
         if (productOrderRepository.createOrder(user, product, quantity)) {
-            System.out.println("User"+user.getName()+" create order for "+quantity+" qua. "+product.getName());
+            System.out.println("User" + user.getName() + " create order for " + quantity + " qua. " + product.getName());
             return true;
         } else {
             System.out.println("Saving error. Try again");

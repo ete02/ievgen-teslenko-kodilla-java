@@ -71,7 +71,7 @@ public class WeatherForecastTestSuite {
         double averageTemperature = weatherForecast.averageTemperature();
 
         //Then
-        assertEquals(25.48, averageTemperature,0.00);
+        assertEquals(25.48, averageTemperature, 0.00);
     }
 
     @Test

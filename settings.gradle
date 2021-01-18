@@ -1,7 +1,6 @@
-rootProject.name = 'kodilla-course'
-include 'kodilla-testing'
-include 'kodilla-stream'
+rootProject.name = 'ievgen-teslenko-kodilla-java'
 include 'kodilla-exception'
-include 'kodilla-blackjack'
 include 'kodilla-good-patterns'
-
+include 'kodilla-spring-intro'
+include 'kodilla-stream'
+include 'kodilla-testing'

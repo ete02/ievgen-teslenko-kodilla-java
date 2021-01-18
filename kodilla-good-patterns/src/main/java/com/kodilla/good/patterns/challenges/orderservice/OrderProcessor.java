@@ -15,7 +15,7 @@ public class OrderProcessor {
 
         if (isOrdered) {
             informationService.inform(orderRequest.getUser());
-            return new OrderDto(orderRequest.getUser(), orderRequest.getProduct(),true);
+            return new OrderDto(orderRequest.getUser(), orderRequest.getProduct(), true);
         } else {
             return new OrderDto(orderRequest.getUser(), orderRequest.getProduct(), false);
         }

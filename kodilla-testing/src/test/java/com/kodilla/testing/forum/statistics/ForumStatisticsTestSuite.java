@@ -25,8 +25,10 @@ public class ForumStatisticsTestSuite {
     @Test //Simplify When users: 100, posts:1000, comments:100
     public void testCalculateStatisticsCase2() {
         Statistics statisticsMock = mock(Statistics.class);
-        ArrayList<String>names = new ArrayList<String>();
-        for (int i = 0; i<100; i++){names.add("user" + i);}
+        ArrayList<String> names = new ArrayList<String>();
+        for (int i = 0; i < 100; i++) {
+            names.add("user" + i);
+        }
 
         when(statisticsMock.usersNames()).thenReturn(names);
         when(statisticsMock.postsCount()).thenReturn(1000);

@@ -1,4 +1,5 @@
 package com.kodilla.testing.collection;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import com.kodilla.testing.collection.OddNumbersExterminator;

@@ -5,7 +5,7 @@ public class ThirdChallenge {
         FlightSearcher thirdChallenge = new FlightSearcher();
         Flight myFlight1 = new Flight("Warsaw", "Paris");
         Flight myFlight2 = new Flight("Warsaw", "Berlin");
-        Flight myFlight3 = new Flight("Berlin", "New-York");
+        Flight myFlight3 = new Flight("Berlin", "New-York. ");
         try {
             thirdChallenge.findFlight(myFlight1);
         } catch (RouteNotFoundException e) {
