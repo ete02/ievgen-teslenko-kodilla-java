@@ -1,48 +1,42 @@
 package com.kodilla.good.patterns.challenges.flight;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Flight {
-    private final Airport departure;
-    private final Airport destination;
-    private final List<Airport> stopovers;
+    private final String departureAirport;
+    private final String arrivalAirport;
 
-    public Flight(Airport departure, Airport destination, List<Airport> stopovers) {
-        this.departure = departure;
-        this.destination = destination;
-        this.stopovers = stopovers;
+    public Flight(final String departureAirport, final String arrivalAirport) {
+        this.departureAirport = departureAirport;
+        this.arrivalAirport = arrivalAirport;
     }
 
-    public Airport getDeparture() {
-        return departure;
+    public String getDepartureAirport() {
+        return departureAirport;
     }
 
-    public Airport getDestination() {
-        return destination;
+    public String getArrivalAirport() {
+        return arrivalAirport;
     }
 
-    public List<Airport> getStopsList() {
-        return stopovers;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Flight flight = (Flight) o;
+
+        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport);
     }
 
-    public boolean isThrough(Airport airport) {
-        return stopovers.contains(airport);
+    @Override
+    public int hashCode() {
+        return Objects.hash(departureAirport, arrivalAirport);
     }
 
     @Override
     public String toString() {
-        String exit = "Lot " + departure.getAbbrev() + "-" + destination.getAbbrev() + ": wylot z " + departure.getName() + ", ladowanie w " + destination.getName();
-        if (stopovers == null) {
-            exit += ", brak miedzylodowan."; // exit pozwala skonczyc pr.
-        } else {
-            exit += ", miedzylodowanie w: " + stopovers.get(0);
-            int i = 1;
-            while (i < stopovers.size()) {
-                exit += ", " + stopovers.get(i);
-                i++;
-            }
-            exit += ".";
-        }
-        return exit;
+        return "Flight " + departureAirport + " -> " + arrivalAirport;
     }
 }
