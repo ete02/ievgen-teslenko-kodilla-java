@@ -38,8 +38,7 @@ public class BigmacTestSuite {
                 .ingredients(CHILI_PEPPERS)
                 .ingredients(TOMATO)
                 .ingredients(CHEESE)
-                .build();
-        System.out.println(bigMac);
+                .build();;
         //When
         RollType whichRoll = bigMac.getRoll();
         int howManyBurgers = bigMac.getBurgers();
