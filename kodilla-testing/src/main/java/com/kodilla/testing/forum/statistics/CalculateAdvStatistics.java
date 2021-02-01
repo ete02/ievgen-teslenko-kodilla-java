@@ -5,7 +5,17 @@ public class CalculateAdvStatistics {
     public double averagePostsPerUser;
     public double averageCommentsPerUser;
     public double averageCommentsPerPost;
+    public int numberOfPosts;
+    public int numberOfComments;
 
+    public int getNumberOfPosts() {
+        return numberOfPosts;
+    }
+
+
+    public int getNumberOfComments() {
+        return numberOfComments;
+    }
     public CalculateAdvStatistics(Statistics statistics) {
         this.usersCount = statistics.usersNames().size();
         if (statistics.usersNames().size() != 0) {
