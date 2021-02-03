@@ -40,7 +40,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
-        Task paintingTask = factory.makeTask() Task(TaskFactory.Painting);
+        Task paintingTask = factory.makeTask()Task(TaskFactory.Painting);
         //Then
         Assert.assertEquals("Painting", paintingTask.getTaskName());
         Assert.assertEquals(true, paintingTask.isTaskExecuted());
