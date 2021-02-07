@@ -2,26 +2,26 @@ package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class TaskDaoTestSuite {
-
-    private static final String DESCRIPTION = "Test: Learn Hibernate";
-
+public class TaskDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
+    private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
-    void testTaskDaoSave() {
+    public void testTaskDaoSave() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
 
@@ -31,14 +31,14 @@ class TaskDaoTestSuite {
         //Then
         int id = task.getId();
         Optional<Task> readTask = taskDao.findById(id);
-        assertTrue(readTask.isPresent());
+        Assert.assertTrue(readTask.isPresent());
 
         //CleanUp
         taskDao.deleteById(id);
     }
 
     @Test
-    void testTaskDaoFindByDuration() {
+    public void testTaskDaoFindByDuration() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
         taskDao.save(task);
@@ -48,15 +48,15 @@ class TaskDaoTestSuite {
         List<Task> readTasks = taskDao.findByDuration(duration);
 
         //Then
-        assertEquals(1, readTasks.size());
+        Assert.assertEquals(1, readTasks.size());
 
         //CleanUp
-        //int id = readTasks.get(0).getId();
-        //taskDao.deleteById(id);
+        int id = readTasks.get(0).getId();
+        taskDao.deleteById(id);
     }
 
     @Test
-    void testTaskDaoSaveWithFinancialDetails() {
+    public void testTaskDaoSaveWithFinancialDetails() {
         //Given
         Task task = new Task(DESCRIPTION, 30);
         task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
@@ -66,9 +66,9 @@ class TaskDaoTestSuite {
         int id = task.getId();
 
         //Then
-        assertNotEquals(0, id);
+        Assert.assertNotEquals(0, id);
 
         //CleanUp
-        //taskDao.deleteById(id);
+        taskDao.deleteById(id);
     }
 }
