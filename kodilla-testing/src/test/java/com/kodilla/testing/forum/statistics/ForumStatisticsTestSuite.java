@@ -20,6 +20,9 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(0, calculateAdvStatistics.averagePostsPerUser, 0.01);
         Assert.assertEquals(0, calculateAdvStatistics.averageCommentsPerUser, 0.01);
         Assert.assertEquals(0, calculateAdvStatistics.averageCommentsPerPost, 0.01);
+        Assert.assertEquals(0,calculateAdvStatistics.numberOfComments);
+        Assert.assertEquals(0,calculateAdvStatistics.numberOfPosts);
+
     }
 
     @Test //Simplify When users: 100, posts:1000, comments:100
