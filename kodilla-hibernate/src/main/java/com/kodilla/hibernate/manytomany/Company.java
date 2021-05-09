@@ -14,6 +14,11 @@ import java.util.List;
         name = "Company.retrieveCompaniesBySentence",
         query = "FROM Company WHERE name LIKE :SENTENCE"
 )
+@NamedQuery(
+        name = "Company.retrieveCompanyByName",
+        query = " FROM Company WHERE :COMPANY_NAME LIKE CONCAT('%', :COMPANY_NAME, '%') "
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
