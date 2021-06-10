@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
@@ -149,22 +150,27 @@ class BoardTestSuite {
     void testAverageWorkingOnTasks() {
         System.out.println("Test Average Working On Tasks");
         //Given
-        final Board project = prepareTestData();
+        Board project = prepareTestData();
+
         //When
-        final List<TaskList> inProgressTasks = new ArrayList<>();
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        List<Integer> thelist;
+
         inProgressTasks.add(new TaskList("In progress"));
-        final List<Task> tasks = project.getTaskLists().stream()
+        inProgressTasks.add(new TaskList("Done"));
+
+        thelist = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
-                .flatMap(taskList -> taskList.getTasks().stream())
-                .collect(toList());
-        final double averageNumberOfDaysAfterTaskStarts = IntStream.range(0, tasks.size()) // strumien typów prostych
-                .map(n -> {
-                    final Period period = Period.between(tasks.get(n).getCreated(), LocalDate.now());
-                    return period.getDays();
-                })
-                .average()
-                .getAsDouble();
+                .flatMap(t -> t.getTasks().stream())
+                .map(k -> LocalDate.now().getDayOfYear() - k.getDeadline().getDayOfYear())
+                .filter(k -> k >= 0)
+                .collect(Collectors.toList());
+
+        double average = IntStream.range(0, thelist.size())
+                .map(n -> thelist.get(n))
+                .average().getAsDouble();
+
         //Then
-        assertEquals(10, averageNumberOfDaysAfterTaskStarts);
+        assertEquals(10, average);
     }
 }
